@@ -137,7 +137,7 @@
                 <div class="dene">
                     <div class="denem">
                         <div class="deneme">
-                            20<span>.3</span><strong>&deg;</strong>
+                            ${temp}<span>.3</span><strong>&deg;</strong>
                         </div>
                     </div>
                 </div>
