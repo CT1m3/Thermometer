@@ -10,3 +10,7 @@ public class ThermometerApplication {
 		SpringApplication.run(ThermometerApplication.class, args);
 	}
 }
+
+//TODO: Add successful register message
+//TODO: Add enum to change user/admin roles
+//TODO: Add live temperature update

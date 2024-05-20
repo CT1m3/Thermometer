@@ -3,7 +3,7 @@ package com.spring.Thermometer.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,7 +14,6 @@ public class User {
     @Column(name = "password")
     private String password;
     @Transient
-    @Column(name = "confirm_password")
     private String cnfPassword;
     @Column(name = "role")
     private String role;
