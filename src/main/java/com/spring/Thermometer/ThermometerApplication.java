@@ -13,4 +13,3 @@ public class ThermometerApplication {
 
 //TODO: Add successful register message
 //TODO: Add enum to change user/admin roles
-//TODO: Add live temperature update

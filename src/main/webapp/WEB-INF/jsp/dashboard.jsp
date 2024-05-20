@@ -129,6 +129,7 @@
 		}
 
     </style>
+    <meta http-equiv="refresh" content="0.5">
 </head>
 <body>
     <div class="container">
