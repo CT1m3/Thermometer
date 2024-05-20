@@ -9,5 +9,4 @@ public class ThermometerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ThermometerApplication.class, args);
 	}
-
 }

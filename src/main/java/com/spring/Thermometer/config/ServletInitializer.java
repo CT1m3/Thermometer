@@ -1,5 +1,6 @@
-package com.spring.Thermometer;
+package com.spring.Thermometer.config;
 
+import com.spring.Thermometer.ThermometerApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
