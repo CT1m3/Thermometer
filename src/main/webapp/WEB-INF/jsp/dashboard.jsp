@@ -137,7 +137,7 @@
                 <div class="dene">
                     <div class="denem">
                         <div class="deneme">
-                            ${temp}<span>.3</span><strong>&deg;</strong>
+                            ${tempWhole}<span>.${tempDecimal}</span><strong>&deg;</strong>
                         </div>
                     </div>
                 </div>

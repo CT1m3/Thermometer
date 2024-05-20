@@ -19,7 +19,9 @@ public class ThermometerController {
     @GetMapping("/")
     public String dashboard(Model model) {
         espSerialCommunicator.init("COM7", 9600);
-        model.addAttribute("temp", espSerialService.read());
+        String[] temp = espSerialService.read().split("\\.");
+        model.addAttribute("tempWhole", temp[0]);
+        model.addAttribute("tempDecimal", temp[1]);
         espSerialService.close();
         return "dashboard";
     }
