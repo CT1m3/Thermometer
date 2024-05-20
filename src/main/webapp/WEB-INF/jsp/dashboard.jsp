@@ -4,11 +4,12 @@
 <html>
 <head>
     <title>Dashboard</title>
+    <jsp:include page="header.jsp"/>
     <style>
         @import url(https://fonts.googleapis.com/css?family=Dosis:200,400,500,600);
         @import url(https://fonts.googleapis.com/css?family=Poppins:200,400,500,600);
         html, body { height: 100%; }
-        body { background: #080710; }
+        body { background: #080710;}
 
         .container { width: 300px; margin: 10px auto 0; }
         .de .den, .de .dene, .de .denem, .de .deneme { position: absolute;  left: 50%; top: 50%; }
@@ -57,11 +58,11 @@
         }
 
         .deneme {
-            padding: 3px 10px 0 10px;
+            padding: 10px 10px 0 10px;
             width: 120px;
             height: 137px;
             display: inline-block;
-            margin: -70px 0 0 -70px;
+            margin: -85px 0 0 -75px;
             color: #555;
             text-shadow: 1px 1px 1px white;
             font-family: 'Dosis';
@@ -70,7 +71,7 @@
             text-align: center;
         }
         .deneme span { font-size: 30px; font-weight: 200; }
-        .deneme strong { position: absolute; right: 10px; top: 25px; font-size: 34px; }
+        .deneme strong { position: absolute; right: -10px; top: 25px; font-size: 34px; }
 
 		.btn {
           	font-family: 'Poppins', sans-serif;
