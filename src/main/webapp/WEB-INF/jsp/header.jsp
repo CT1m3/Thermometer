@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skaičiuotuvas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .header-component .header-header {
@@ -64,7 +63,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Termometras</a>
         <ul class="nav navbar-nav">
-            <li class="active is"><a href="/?">Išsaugotos temperatūros</a></li>
+            <li class="active is"><a href="/saved">Išsaugotos temperatūros</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right user-role">
             <li><a style="font-size: 15px; color: white;">Vartotojas: <span class="user">${pageContext.request.userPrincipal.name}</span></a></li>

@@ -1,6 +1,6 @@
 package com.spring.Thermometer.Serial;
 
-import arduino.Arduino;
+import com.spring.Thermometer.library.Arduino;
 import org.springframework.stereotype.Component;
 
 @Component

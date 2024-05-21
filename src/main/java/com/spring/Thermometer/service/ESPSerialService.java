@@ -17,6 +17,7 @@ public class ESPSerialService {
     public void transmit(char data){
         espSerialCommunicator.transmit(data);
     }
+
     public String read(){
         String[] split = espSerialCommunicator.read().split("\n");
         return split[1];

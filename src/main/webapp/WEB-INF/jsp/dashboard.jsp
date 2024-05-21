@@ -134,19 +134,24 @@
 </head>
 <body>
     <div class="container">
-        <div class="de">
-            <div class="den">
-                <div class="dene">
-                    <div class="denem">
-                        <div class="deneme">
-                            ${tempWhole}<span>.${tempDecimal}</span><strong>&deg;</strong>
+        <form action="/" method="post">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            <input type="hidden" name="tempWhole" value="${tempWhole}" />
+            <input type="hidden" name="tempDecimal" value="${tempDecimal}" />
+            <div class="de">
+                <div class="den">
+                    <div class="dene">
+                        <div class="denem">
+                            <div class="deneme">
+                                ${tempWhole}<span>.${tempDecimal}</span><strong>&deg;</strong>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-		<button class="btn record">Įrašyti</button>
-		<button class="btn status">Statusas</button>
+            <button type="submit" name="action" value="record" class="btn record">Įrašyti</button>
+            <button type="submit" name="action" value="status" class="btn status">Statusas</button>
+        </form>
     </div>
 </body>
 </html>
