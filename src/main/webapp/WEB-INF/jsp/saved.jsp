@@ -97,7 +97,7 @@
                     <c:param name="id" value="${record.id}"/>
                 </c:url>
 
-                <c:url var="trinti" value="/trinti">
+                <c:url var="delete" value="/delete">
                     <c:param name="id" value="${record.id}"/>
                 </c:url>
 
@@ -117,7 +117,7 @@
                         <sec:authorize access="hasAnyAuthority('ADMIN')">
                             <a href="${edit}">Keisti</a>
                             |
-                            <a href="${trinti}" onclick="return confirm('Ar tikrai norite ištrinti šį įrašą?')">Trinti</a>
+                            <a href="${delete}" onclick="return confirm('Ar tikrai norite ištrinti šį įrašą?')">Trinti</a>
                             |
                         </sec:authorize>
                         <a href="${rodyti}">Rodyti</a>

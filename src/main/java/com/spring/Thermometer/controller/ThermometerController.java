@@ -83,4 +83,9 @@ public class ThermometerController {
         temperatureService.update(temperature);
         return "redirect:/saved";
     }
+    @RequestMapping(method = RequestMethod.GET, value = "/delete{id}")
+    public String delete(@RequestParam("id") int id, Model model) {
+        temperatureService.delete(id);
+        return "redirect:/saved";
+    }
 }

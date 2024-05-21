@@ -12,8 +12,6 @@ public class ThermometerApplication {
 }
 
 //TODO: Add successful register message
-//TODO: Add keisti
-//TODO: Add trinti
 //TODO: Add rodyti
 //TODO: Fix user restrictions in WebSecurityConfig
 //TODO: Add Websockets or something similar for better dashboard temperature refreshing
