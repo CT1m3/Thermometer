@@ -148,14 +148,14 @@ a{
                 </spring:bind>
                 <spring:bind path="password">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <label for="password">Slaptažodis</label>
+                        <label for="password">Naujas slaptažodis</label>
                         <form:input type="password" path="password" class="form-control"/>
                         <form:errors path="password" cssClass="error-message"/>
                     </div>
                 </spring:bind>
                 <spring:bind path="cnfPassword">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <label for="password">Patvirkinkite slaptažodį</label>
+                        <label for="password">Patvirtinkite naują slaptažodį</label>
                         <form:input type="password" path="cnfPassword" class="form-control"/>
                         <form:errors path="cnfPassword" cssClass="error-message"/>
                     </div>

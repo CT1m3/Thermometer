@@ -12,4 +12,10 @@ public class ThermometerApplication {
 }
 
 //TODO: Add successful register message
-//TODO: Add enum to change user/admin roles
+//TODO: Add keisti
+//TODO: Add trinti
+//TODO: Add rodyti
+//TODO: Fix user restrictions in WebSecurityConfig
+//TODO: Add Websockets or something similar for better dashboard temperature refreshing
+//TODO: Make saved.jsp look better
+//TODO: Configure status to show if device is connected and when you click it, it attempts to reconnect
