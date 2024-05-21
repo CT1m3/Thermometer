@@ -82,10 +82,13 @@
     <div class="table-responsive">
         <table class="table table-striped">
             <tr>
-                <th>Id</th>
+                <sec:authorize access="hasAnyAuthority('ADMIN')">
+                    <th>Id</th>
+                </sec:authorize>
                 <th>Įrašo laikas</th>
                 <th>Temperatūra °C</th>
                 <th>Temperatūra °F</th>
+                <th>Operacijos</th>
             </tr>
 
             <c:forEach var="record" items="${data}">
@@ -103,7 +106,9 @@
                 </c:url>
 
                 <tr>
-                    <td>${record.id}</td>
+                    <sec:authorize access="hasAnyAuthority('ADMIN')">
+                        <td>${record.id}</td>
+                    </sec:authorize>
                     <td>${record.date}</td>
                     <td>${record.temperatureCelsius}</td>
                     <td>${record.temperatureFahrenheit}</td>
