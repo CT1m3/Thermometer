@@ -6,15 +6,16 @@ import com.spring.Thermometer.service.ESPSerialService;
 import com.spring.Thermometer.service.TemperatureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.awt.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
@@ -65,5 +66,21 @@ public class ThermometerController {
     public String saved(Model model){
         model.addAttribute("data", temperatureService.getAll());
         return "saved";
+    }
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+    }
+    @GetMapping("/edit{id}")
+    public String update(@RequestParam("id") int id, Model model){
+        model.addAttribute("temperature", temperatureService.getById(id));
+        return "edit";
+    }
+    @PostMapping("/edit")
+    public String update(@ModelAttribute("temperature") Temperature temperature){
+        temperatureService.update(temperature);
+        return "redirect:/saved";
     }
 }

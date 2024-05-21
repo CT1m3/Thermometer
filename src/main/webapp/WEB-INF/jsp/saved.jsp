@@ -93,7 +93,7 @@
 
             <c:forEach var="record" items="${data}">
 
-                <c:url var="atnaujinti" value="/atnaujinti">
+                <c:url var="edit" value="/edit">
                     <c:param name="id" value="${record.id}"/>
                 </c:url>
 
@@ -115,7 +115,7 @@
 
                     <td>
                         <sec:authorize access="hasAnyAuthority('ADMIN')">
-                            <a href="${atnaujinti}">Keisti</a>
+                            <a href="${edit}">Keisti</a>
                             |
                             <a href="${trinti}" onclick="return confirm('Ar tikrai norite ištrinti šį įrašą?')">Trinti</a>
                             |
