@@ -1,6 +1,7 @@
 package com.spring.Thermometer.service;
 
 import com.spring.Thermometer.Serial.ESPSerialCommunicator;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
