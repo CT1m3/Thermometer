@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.awt.*;
 import java.util.Date;
 
@@ -36,6 +37,8 @@ public class ThermometerController {
             model.addAttribute("tempDecimal", temp[1]);
         } catch (HeadlessException e) {
             System.err.println("HeadlessException triggered");
+        } catch (ArrayIndexOutOfBoundsException e){
+            System.err.println("No value");
         }
         return "dashboard";
     }
@@ -46,8 +49,16 @@ public class ThermometerController {
             String temp = tempWhole + "." + tempDecimal;
             Temperature temperature = new Temperature(Double.parseDouble(temp), (Double.parseDouble(temp) * 9/5) + 32, new Date());
             temperatureService.save(temperature);
+
+            return "redirect:/temperature?temp=" +temperature.getTemperatureCelsius();
         }
         return "dashboard";
+    }
+
+    @GetMapping("/temperature")
+    public String temperature(String temp, Model model){
+        model.addAttribute("temp", temp);
+        return "temperature";
     }
 
     @GetMapping("/saved")
