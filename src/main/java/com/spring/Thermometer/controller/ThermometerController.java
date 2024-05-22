@@ -66,13 +66,13 @@ public class ThermometerController {
 
 
             User currentUser = userRepository.findByUsername(username);
+            try{
+                Temperature temperature = new Temperature(Double.parseDouble(temp), (Double.parseDouble(temp) * 9/5) + 32, new Date());
+                temperature.setUser(currentUser);
+                temperatureService.save(temperature);
 
-            Temperature temperature = new Temperature(Double.parseDouble(temp), (Double.parseDouble(temp) * 9/5) + 32, new Date());
-            temperature.setUser(currentUser);
-
-            temperatureService.save(temperature);
-
-            return "redirect:/temperature?temp=" +temperature.getTemperatureCelsius();
+                return "redirect:/temperature?temp=" +temperature.getTemperatureCelsius();
+            }catch (Exception e){}
         }
         if("status".equals(action)){
             espSerialService.open();
