@@ -130,7 +130,7 @@
 		}
 
     </style>
-    <meta http-equiv="refresh" content="0.5">
+    <meta http-equiv="refresh" content="1">
 </head>
 <body>
     <div class="container">
@@ -150,7 +150,7 @@
                 </div>
             </div>
             <button type="submit" name="action" value="record" class="btn record">Įrašyti</button>
-            <button type="submit" name="action" value="status" class="btn status">Statusas</button>
+            <button type="submit" name="action" value="status" class="btn status">${status}</button>
         </form>
     </div>
 </body>

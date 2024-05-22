@@ -43,7 +43,7 @@
                 </a>
             </li>
             <li style="margin-left: auto;">
-                <a href="${pageContext.request.contextPath}/logout" style="font-size: 15px; background-color: red; padding: 4px 5px; border-radius: 10px;">
+                <a href="${pageContext.request.contextPath}/logout" style="font-size: 15px; background-color: red; padding: 4px 5px; border-radius: 10px; text-decoration: none; color: white;">
                     Atsijungti
                 </a>
             </li>

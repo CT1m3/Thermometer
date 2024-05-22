@@ -33,4 +33,5 @@ public class ESPSerialCommunicator {
     public void close() {
         esp.closeConnection();
     }
+    public void open(){esp.openConnection();}
 }

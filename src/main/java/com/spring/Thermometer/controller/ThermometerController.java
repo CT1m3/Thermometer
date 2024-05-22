@@ -36,10 +36,13 @@ public class ThermometerController {
             String[] temp = espSerialService.read().split("\\.");
             model.addAttribute("tempWhole", temp[0]);
             model.addAttribute("tempDecimal", temp[1]);
+            model.addAttribute("status", "Connected");
         } catch (HeadlessException e) {
-            System.err.println("HeadlessException triggered");
+            model.addAttribute("status", "Offline");
         } catch (ArrayIndexOutOfBoundsException e){
-            System.err.println("No value");
+            model.addAttribute("status", "Offline");
+        } catch (NullPointerException e){
+            model.addAttribute("status", "Offline");
         }
         return "dashboard";
     }
@@ -52,6 +55,9 @@ public class ThermometerController {
             temperatureService.save(temperature);
 
             return "redirect:/temperature?temp=" +temperature.getTemperatureCelsius();
+        }
+        if("status".equals(action)){
+            espSerialService.open();
         }
         return "dashboard";
     }

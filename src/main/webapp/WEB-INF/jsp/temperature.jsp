@@ -83,7 +83,7 @@ form h3{
     display: block;
     width: 100%;
     background-color: #4169E1;
-    color: #FFFFF;
+    color: #FFFFFF;
     padding: 15px 0;
     font-size: 18px;
     font-weight: 600;
@@ -91,6 +91,12 @@ form h3{
     cursor: pointer;
     text-decoration: none;
     text-align: center;
+    transition: background-color 0.3s;
+}
+.link:hover{
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #3454b4;
 }
 
     </style>

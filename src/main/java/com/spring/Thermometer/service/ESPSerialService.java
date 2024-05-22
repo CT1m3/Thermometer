@@ -26,4 +26,5 @@ public class ESPSerialService {
     public void close(){
         espSerialCommunicator.close();
     }
+    public void open(){espSerialCommunicator.open();}
 }

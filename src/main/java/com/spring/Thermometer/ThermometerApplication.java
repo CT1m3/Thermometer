@@ -11,8 +11,5 @@ public class ThermometerApplication {
 	}
 }
 
-//TODO: Add successful register message
-//TODO: Add Websockets or something similar for better dashboard temperature refreshing
-//TODO: Configure status to show if device is connected and when you click it, it attempts to reconnect
 //TODO: Admin sees all temps, users only see their own
 //TODO: Add searchbar to dashboard
