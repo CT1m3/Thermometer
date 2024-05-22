@@ -39,6 +39,10 @@ public class WebSecurityConfig{
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
                 auth -> auth.requestMatchers("/WEB-INF/jsp/**").permitAll());
+        http.authorizeHttpRequests((authorize) -> authorize
+                .requestMatchers("/edit").hasAuthority("ADMIN")
+                .requestMatchers("/delete").hasAuthority("ADMIN")
+        );
         http.authorizeHttpRequests(
                         auth -> auth.requestMatchers("/register").permitAll()
                                 .anyRequest().authenticated())
