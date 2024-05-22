@@ -73,12 +73,51 @@
             color: white;
         }
 
+        .search-bar {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.13);
+        }
+
+        .search-input {
+            border: none;
+            padding: 10px;
+            flex-grow: 1;
+            font-family: 'Poppins', sans-serif;
+            background-color: transparent;
+            color: white;
+        }
+
+        .search-input::placeholder {
+            color: white;
+        }
+
+        .search-button {
+            border: none;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
     </style>
+</head>
 <body class="container">
-    <div class="background">
-    	<div class="shape"></div>
-        <div class="shape"></div>
-    </div>
+    <form class="search-bar" action="/saved" method="GET">
+        <input type="text" name="query" class="search-input" placeholder="Ieškoti pagal 'Temperatūra °C'">
+        <button type="submit" class="search-button">Ieškoti</button>
+    </form>
     <div class="table-responsive">
         <table class="table table-striped">
             <tr>
@@ -92,7 +131,6 @@
             </tr>
 
             <c:forEach var="record" items="${data}">
-
                 <c:url var="edit" value="/edit">
                     <c:param name="id" value="${record.id}"/>
                 </c:url>
@@ -112,13 +150,10 @@
                     <td>${record.date}</td>
                     <td>${record.temperatureCelsius}</td>
                     <td>${record.temperatureFahrenheit}</td>
-
                     <td>
                         <sec:authorize access="hasAnyAuthority('ADMIN')">
-                            <a href="${edit}">Keisti</a>
-                            |
-                            <a href="${delete}" onclick="return confirm('Ar tikrai norite ištrinti šį įrašą?')">Trinti</a>
-                            |
+                            <a href="${edit}">Keisti</a> |
+                            <a href="${delete}" onclick="return confirm('Ar tikrai norite ištrinti šį įrašą?')">Trinti</a> |
                         </sec:authorize>
                         <a href="${view}">Rodyti</a>
                     </td>

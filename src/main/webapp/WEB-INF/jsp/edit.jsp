@@ -137,6 +137,7 @@ a{
             <input type="number"  name="temperatureFahrenheit"  value="${temperature.temperatureFahrenheit}" step="any"><p>
             Įrašo laikas:<br>
             <input type="datetime-local"    name="date"  value="${temperature.date}" step="any"><p>
+            <input type="hidden" name="user" value="${temperature.user.id}">
             <button type="submit">Atnaujinti</button>
         </form:form>
     </body>

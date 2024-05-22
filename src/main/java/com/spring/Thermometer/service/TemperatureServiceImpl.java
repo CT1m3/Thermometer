@@ -31,6 +31,10 @@ public class TemperatureServiceImpl implements TemperatureService{
         return temperatureRepository.findByUserId(userId);
     }
 
+    public List<Temperature> findByTemperatureCelsiusBetween(double min, double max){ return temperatureRepository.findByTemperatureCelsiusBetween(min, max);}
+
+    public List<Temperature> findByTemperatureCelsiusBetweenAndUserId(double min, double max, int userId){return  temperatureRepository.findByTemperatureCelsiusBetweenAndUserId(min, max, userId);}
+
     @Override
     public void update(Temperature temperature) {
         temperatureRepository.save(temperature);

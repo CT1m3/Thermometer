@@ -13,6 +13,9 @@ public interface TemperatureService {
     Temperature getById(int id);
 
     List<Temperature> getByUserId(int userId);
+    List<Temperature> findByTemperatureCelsiusBetween(double min, double max);
+
+    List<Temperature> findByTemperatureCelsiusBetweenAndUserId(double min, double max, int userId);
 
     void update(Temperature temperature);
 

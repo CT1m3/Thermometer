@@ -10,5 +10,3 @@ public class ThermometerApplication {
 		SpringApplication.run(ThermometerApplication.class, args);
 	}
 }
-
-//TODO: Add searchbar to dashboard

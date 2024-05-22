@@ -23,6 +23,7 @@ import javax.servlet.http.HttpSession;
 import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @EnableAutoConfiguration
@@ -86,17 +87,32 @@ public class ThermometerController {
     }
 
     @GetMapping("/saved")
-    public String saved(Model model){
+    public String saved(@RequestParam(name = "query", required = false) String query, Model model){
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
         User currentUser = userRepository.findByUsername(username);
 
-        if(currentUser.getRole().equals("ADMIN")){
-            model.addAttribute("data", temperatureService.getAll());
+        List<Temperature> temperatureData = null;
+        try{
+            if (query != null && !query.isEmpty()) {
+            double temperature = Double.parseDouble(query);
+            double min = temperature;
+            double max = temperature + 0.5;
+            if (currentUser.getRole().equals("ADMIN")){
+                temperatureData = temperatureService.findByTemperatureCelsiusBetween(min, max);
+            }
+            if (currentUser.getRole().equals("USER")){
+                temperatureData = temperatureService.findByTemperatureCelsiusBetweenAndUserId(min, max, currentUser.getId());
+            }
+        } else {
+            if (currentUser.getRole().equals("ADMIN")) {
+                temperatureData = temperatureService.getAll();
+            } else {
+                temperatureData = temperatureService.getByUserId(currentUser.getId());
+            }
         }
-        else{
-            model.addAttribute("data", temperatureService.getByUserId(currentUser.getId()));
-        }
+            model.addAttribute("data", temperatureData);
+        }catch (Exception e){}
         return "saved";
     }
     @InitBinder
