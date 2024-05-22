@@ -12,7 +12,10 @@ public interface TemperatureService {
 
     Temperature getById(int id);
 
+    List<Temperature> getByUserId(int userId);
+
     void update(Temperature temperature);
 
     void delete(int id);
+
 }

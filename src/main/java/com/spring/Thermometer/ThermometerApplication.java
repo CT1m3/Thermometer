@@ -11,5 +11,4 @@ public class ThermometerApplication {
 	}
 }
 
-//TODO: Admin sees all temps, users only see their own
 //TODO: Add searchbar to dashboard

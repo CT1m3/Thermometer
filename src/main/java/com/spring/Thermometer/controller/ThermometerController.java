@@ -2,12 +2,18 @@ package com.spring.Thermometer.controller;
 
 import com.spring.Thermometer.Serial.ESPSerialCommunicator;
 import com.spring.Thermometer.model.Temperature;
+import com.spring.Thermometer.model.User;
+import com.spring.Thermometer.repository.UserRepository;
 import com.spring.Thermometer.service.ESPSerialService;
 import com.spring.Thermometer.service.TemperatureService;
+import com.spring.Thermometer.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -26,9 +32,11 @@ public class ThermometerController {
     ESPSerialService espSerialService;
 
     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
     @Qualifier("TemperatureService")
     public TemperatureService temperatureService;
-
 
     @GetMapping("/")
     public String dashboard(Model model) {
@@ -51,7 +59,16 @@ public class ThermometerController {
                                          @RequestParam("tempDecimal") String tempDecimal, Model model){
         if("record".equals(action)){
             String temp = tempWhole + "." + tempDecimal;
+
+            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            String username = ((UserDetails)principal).getUsername();
+
+
+            User currentUser = userRepository.findByUsername(username);
+
             Temperature temperature = new Temperature(Double.parseDouble(temp), (Double.parseDouble(temp) * 9/5) + 32, new Date());
+            temperature.setUser(currentUser);
+
             temperatureService.save(temperature);
 
             return "redirect:/temperature?temp=" +temperature.getTemperatureCelsius();
@@ -70,7 +87,16 @@ public class ThermometerController {
 
     @GetMapping("/saved")
     public String saved(Model model){
-        model.addAttribute("data", temperatureService.getAll());
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = ((UserDetails)principal).getUsername();
+        User currentUser = userRepository.findByUsername(username);
+
+        if(currentUser.getRole().equals("ADMIN")){
+            model.addAttribute("data", temperatureService.getAll());
+        }
+        else{
+            model.addAttribute("data", temperatureService.getByUserId(currentUser.getId()));
+        }
         return "saved";
     }
     @InitBinder

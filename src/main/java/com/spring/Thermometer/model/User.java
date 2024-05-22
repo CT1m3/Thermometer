@@ -2,6 +2,8 @@ package com.spring.Thermometer.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -17,6 +19,8 @@ public class User {
     private String cnfPassword;
     @Column(name = "role")
     private String role;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Temperature> temperatures;
 
     public User() {
     }
@@ -69,5 +73,25 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public List<Temperature> getTemperatures() {
+        return temperatures;
+    }
+
+    public void setTemperatures(List<Temperature> temperatures) {
+        this.temperatures = temperatures;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", cnfPassword='" + cnfPassword + '\'' +
+                ", role='" + role + '\'' +
+                ", temperatures=" + temperatures +
+                '}';
     }
 }

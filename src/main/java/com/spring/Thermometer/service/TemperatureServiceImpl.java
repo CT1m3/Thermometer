@@ -27,6 +27,10 @@ public class TemperatureServiceImpl implements TemperatureService{
         return temperatureRepository.findById(id);
     }
 
+    public List<Temperature> getByUserId(int userId){
+        return temperatureRepository.findByUserId(userId);
+    }
+
     @Override
     public void update(Temperature temperature) {
         temperatureRepository.save(temperature);

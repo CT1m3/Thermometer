@@ -102,10 +102,6 @@ form h3{
     </style>
 </head>
 <body>
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
     <form action="/" method="post">>
         <h3>${temp}°C buvo sėkmingai įrašyta!</h3>
         <a class="link" href="${contextPath}/">Atgal</a>
