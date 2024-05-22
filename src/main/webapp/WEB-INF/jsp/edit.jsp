@@ -131,11 +131,11 @@ a{
         </div>
         <form:form name="temperature" action="edit" method="post">
             <input type="hidden"    name="id"   value="${temperature.id}" ><p>
-            Pirmas skaicius:<br>
+            Temperatūra °C:<br>
             <input type="number"    name="temperatureCelsius"  value="${temperature.temperatureCelsius}" step="any"><p>
-            Ženklas:<br>
+            Temperatūra °F:<br>
             <input type="number"  name="temperatureFahrenheit"  value="${temperature.temperatureFahrenheit}" step="any"><p>
-            Antras skaičius:<br>
+            Įrašo laikas:<br>
             <input type="datetime-local"    name="date"  value="${temperature.date}" step="any"><p>
             <button type="submit">Atnaujinti</button>
         </form:form>

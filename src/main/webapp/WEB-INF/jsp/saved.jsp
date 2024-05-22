@@ -101,7 +101,7 @@
                     <c:param name="id" value="${record.id}"/>
                 </c:url>
 
-                <c:url var="rodyti" value="/rodyti">
+                <c:url var="view" value="/view">
                     <c:param name="id" value="${record.id}"/>
                 </c:url>
 
@@ -120,7 +120,7 @@
                             <a href="${delete}" onclick="return confirm('Ar tikrai norite ištrinti šį įrašą?')">Trinti</a>
                             |
                         </sec:authorize>
-                        <a href="${rodyti}">Rodyti</a>
+                        <a href="${view}">Rodyti</a>
                     </td>
                 </tr>
             </c:forEach>

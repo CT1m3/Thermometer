@@ -81,11 +81,16 @@ public class ThermometerController {
     @PostMapping("/edit")
     public String update(@ModelAttribute("temperature") Temperature temperature){
         temperatureService.update(temperature);
-        return "redirect:/saved";
+        return "redirect:/view?id=" + temperature.getId();
     }
     @RequestMapping(method = RequestMethod.GET, value = "/delete{id}")
     public String delete(@RequestParam("id") int id, Model model) {
         temperatureService.delete(id);
         return "redirect:/saved";
+    }
+    @RequestMapping(method = RequestMethod.GET, value = "/view{id}")
+    public String view(@RequestParam("id") int id, Model model) {
+        model.addAttribute("temperature", temperatureService.getById(id));
+        return "view";
     }
 }

@@ -12,10 +12,8 @@ public class ThermometerApplication {
 }
 
 //TODO: Add successful register message
-//TODO: Add rodyti
 //TODO: Fix user restrictions in WebSecurityConfig
 //TODO: Add Websockets or something similar for better dashboard temperature refreshing
-//TODO: Make saved.jsp look better
 //TODO: Configure status to show if device is connected and when you click it, it attempts to reconnect
 //TODO: Add 3d models to project
 //TODO: Admin sees all temps, users only see their own
